@@ -1,0 +1,23 @@
+<form #userForm="ngForm" (ngSubmit)="userForm.value">
+  <input type="text" placeholder="Please enter your name" name="username" [(ngModel)]="user.username" pattern="^[A-Za-z]+$" required="required" [minlength]="3">
+  <span *ngIf="userForm.controls['username']?.invalid && userForm.controls['username']?.touched">
+    <span *ngIf="userForm.controls['username']?.errors?.['required']">Name field is required</span>
+    <span *ngIf="userForm.controls['username']?.errors?.['pattern']">Name field contains only alphabetical character</span>
+    <span *ngIf="!userForm.controls['username']?.errors?.['pattern'] && userForm.controls['username']?.errors?.['minlength']">Name field should be minimum 3 character</span>
+  </span>
+  <br><br>
+
+  <input type="email" placeholder="Please enter your email address" name="email" [(ngModel)]="user.email" required="required" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+  <span *ngIf="userForm.controls['email']?.invalid && userForm.controls['email']?.touched">
+    <span *ngIf="userForm.controls['email']?.errors?.['required']">Email field is required</span>
+    <span *ngIf="userForm.controls['email']?.errors?.['pattern']">Please enter valid email</span>
+  </span>
+
+  <br><br>
+
+  <input type="number" name="age" placeholder="Please enter your age" [(ngModel)]="user.age" required="required">
+  <span *ngIf="userForm.controls['age']?.invalid && userForm.controls['age']?.touched">
+    <span *ngIf="userForm.controls['age']?.errors?.['required']">Age field is required</span>
+  </span>
+  <button [disabled]="userForm.invalid">Submit</button>
+</form>
