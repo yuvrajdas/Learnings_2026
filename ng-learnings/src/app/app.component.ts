@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { topics } from './dummy_data'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-learnings';
+  routes = topics
+  constructor(private route:Router){}
+
+  onRouteChange(event:any){
+    let rLink = event?.target['value'];
+    console.log(rLink)
+    this.route.navigateByUrl(rLink)
+  }
 }
