@@ -1,0 +1,74 @@
+<script>
+    
+    // console.log(x)
+    // console.log(hello)
+    
+    // var x = 10;
+    
+    // function hello(){
+    //     console.log('hello fun')
+    // }
+
+
+    // a function having access to the lexical scope of its parent even if it returns
+    function parentFun(){
+        let parentScopeVar = 10;
+
+        return function childFun(){
+            console.log(parentScopeVar);
+        }
+    }
+    let cf = parentFun();
+
+    // console.log(cf())
+
+    // ------------------------------------------------
+    let students = [
+        {name:"Pravin", class:12, subject:"maths"},
+        {name:"Vinay", class:6, subject:"maths"},
+        {name:"Yonitha", class:3, subject:"Bio"},
+        {name:"Meera", class:7, subject:"Arts"}
+    ]
+
+    // let res = students.forEach((ele)=>{
+    //     if(ele.name == 'Meera'){
+    //         ele.name = "Hello"
+    //     }
+    // })
+
+    // let res = students.map((ele)=>{
+    //     if(ele.name === 'Meera'){
+    //        return {
+    //          ...ele,
+    //          name:'DAS'
+    //        }
+    //     }
+    //     return ele
+    // })
+
+    // let res = students.filter((ele)=>{
+    //     if(ele.class>=7){
+    //         return ele;
+    //     }
+    // })
+
+     let persons = [
+        {fname:"Pravin", lname:'Kumar', class:12, subject:"maths"},
+        {fname:"Vinay", lname:'Dhruv', class:6, subject:"maths"},
+        {fname:"Yonitha", lname:'Sahu', class:3, subject:"Bio"},
+        {fname:"Meera", lname:'Patel', class:6, subject:"Arts"}
+    ]
+
+    // let res = persons.map(p=>p.fname+" "+p.lname)
+    // console.log(res)
+
+    persons.reduce((acc, ele)=>{
+        if(acc['class']){
+            acc[curr]++
+        }else{
+            acc['class'] = 1;
+        }
+        
+    },{})
+     
+</script>
