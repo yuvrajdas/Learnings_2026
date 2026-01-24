@@ -1,0 +1,25 @@
+
+<form [formGroup]="userForm">
+    <input placeholder="Please enter your name" type="text" formControlName="name">
+    <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+        <span *ngIf="userForm.get('name')?.hasError('required')">Name field is required</span>
+    </div>
+
+    <br><br>
+    <input type="text" placeholder="Please enter your email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        <span *ngIf="userForm.get('email')?.hasError('required')">Email field is required</span>
+        <span *ngIf="userForm.get('email')?.hasError('email')">Please enter valid email</span>
+    </div>
+    <br><br>
+    <div formArrayName="addresses">
+        <button (click)="addMoreAddress()">Add more address</button>
+        <div *ngFor="let address of addresses; let i = index" style="margin-top: 10px;">
+            
+            <input placeholder="Please enter address {{i}}" type="text" [formControlName]="i"><button (click)="deleteAddress(i)">Delete</button>
+            <div *ngIf="userForm.get('addresses')?.get(i.toString())?.invalid && userForm.get('addresses')?.get(i.toString())?.touched">
+                <span *ngIf="userForm.get('addresses')?.get(i.toString())?.hasError('required')"> {{i}} Addres is required</span>
+            </div>
+        </div>
+    </div>
+</form>

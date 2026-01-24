@@ -19,5 +19,6 @@
   <span *ngIf="userForm.controls['age']?.invalid && userForm.controls['age']?.touched">
     <span *ngIf="userForm.controls['age']?.errors?.['required']">Age field is required</span>
   </span>
+  <br><br>
   <button [disabled]="userForm.invalid">Submit</button>
 </form>

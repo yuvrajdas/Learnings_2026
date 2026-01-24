@@ -1,0 +1,39 @@
+
+<p>Reactive Form using formGroup</p>
+<form [formGroup]="userFormFG">
+    <input type="text" placeholder="Please enter your name" formControlName="name">
+    <div *ngIf="userFormFG.get('name')?.invalid && userFormFG.get('name')?.touched">
+        <span *ngIf="userFormFG.get('name')?.hasError('required')">Name field is required</span>
+        <span *ngIf="userFormFG.get('name')?.hasError('pattern')">Please enter valid name</span>
+    </div>
+
+    <br><br>
+
+    <input type="email" formControlName="email" placeholder="Please enter your email">
+    <div *ngIf="userFormFG.get('email')?.invalid && userFormFG.get('email')?.touched">
+        <span *ngIf="userFormFG.get('email')?.hasError('required')">Email field is required</span>
+        <span *ngIf="userFormFG.get('email')?.hasError('email')">Please enter valid eamil</span>
+    </div>
+    <br><br>
+    <button [disabled]="userFormFG.invalid" (click)="submitForm()">Submit</button>
+</form>
+<hr>
+
+<p>Reactive Form Using FormBuilder</p>
+<form [formGroup]="userFormFB">
+    <input type="text" formControlName="name">
+    <div *ngIf="userFormFB.get('name')?.invalid && userFormFB.get('name')?.touched">
+        <span *ngIf="userFormFB.get('name')?.hasError('required')">Name field is required</span>
+        <span *ngIf="userFormFB.get('name')?.hasError('pattern')">Please enter valid name</span>
+    </div>
+    <br><br>
+
+    <input type="email" formControlName="email" >
+    <div *ngIf="userFormFB.get('email')?.invalid && userFormFB.get('email')?.touched">
+        <span *ngIf="userFormFB.get('email')?.hasError('required')">Email field is required</span>
+        <span *ngIf="userFormFB.get('email')?.hasError('email')">Please enter valid email</span>
+    </div>
+
+    <br><br>
+    <button [disabled]="userFormFB.invalid" (click)="submitForm()">Submit</button>
+</form>
