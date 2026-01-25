@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" oninput="betterFun(event)" id="sq">
+    <button onclick="throttleFun()">Fire</button>
+    <script>
+
+
+// --------------------- Debounce ----------------------------------------------
+        function fetchData(e){
+            console.log(e.target.value)
+        }
+
+        function debounce(cb, delay){
+            let timer;
+
+            return function(...args){
+                clearInterval(timer);
+
+                timer = setTimeout(()=>{
+                    cb.call(this, ...args)
+                },delay)
+            }
+        }
+
+        const betterFun = debounce(fetchData, 2000)
+    
+//------------------------ Throtteling -------------------------------------------
+
+        function fireEvent(val){
+            console.log(val)
+        }
+
+
+        let isAwait = false;
+        function throttleFun(){
+            if(!isAwait){
+                fireEvent.call(this, 'Fired')
+                isAwait = true;
+
+                setTimeout(()=>{
+                    isAwait = false;
+                },2000)
+            }
+        }
+    </script>
+</body>
+</html>

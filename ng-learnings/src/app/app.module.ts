@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from './topics/forms/reactive-form/reactive-form.component';
 import { FormComponent } from './topics/forms/form/form.component';
 import { FormArrayComponent } from './topics/forms/form-array/form-array.component';
+import { CustomValidatorComponent } from './topics/forms/custom-validator/custom-validator.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormArrayComponent } from './topics/forms/form-array/form-array.compone
     ReactiveFormComponent,
     FormComponent,
     FormArrayComponent,
+    CustomValidatorComponent,
   ],
   imports: [
     BrowserModule,
