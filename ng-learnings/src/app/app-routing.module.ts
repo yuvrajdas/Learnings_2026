@@ -4,6 +4,7 @@ import { TdfComponent } from './topics/forms/tdf/tdf.component';
 import { ReactiveFormComponent } from './topics/forms/reactive-form/reactive-form.component';
 import { FormComponent } from './topics/forms/form/form.component';
 import { FormArrayComponent } from './topics/forms/form-array/form-array.component';
+import { CustomValidatorComponent } from './topics/forms/custom-validator/custom-validator.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path:'form-array',
         component:FormArrayComponent
+      },
+      {
+        path:'custom-validator',
+        component:CustomValidatorComponent
       }
     ]
   }
