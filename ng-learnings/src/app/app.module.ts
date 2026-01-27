@@ -31,6 +31,12 @@ import { ResolverComponent } from './topics/resolver-example/resolver/resolver.c
 import { HomeComponent } from './topics/routings/home/home.component';
 import { ContactComponent } from './topics/routings/contact/contact.component';
 import { AboutUsComponent } from './topics/routings/about-us/about-us.component';
+import { DashboardComponent } from './topics/auth-guard-ex/dashboard/dashboard.component';
+import { PersonalDetailsComponent } from './topics/auth-guard-ex/personal-details/personal-details.component'; 
+import { LazyLoadingStrategyModule } from './topics/loading-strategy/lazyloading.strategy.module';
+import { SignalsComponent } from './topics/signals/signals.component';
+import { LazyLoadComponentWithoutRoutingComponent } from './topics/exceptional-topics/lazy-load-component-without-routing/lazy-load-component-without-routing.component';
+import { LazyLoadableComComponent } from './topics/exceptional-topics/lazy-loadable-com/lazy-loadable-com.component';
 
 @NgModule({
   declarations: [
@@ -59,14 +65,19 @@ import { AboutUsComponent } from './topics/routings/about-us/about-us.component'
     ResolverComponent,
     HomeComponent,
     ContactComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    DashboardComponent,
+    PersonalDetailsComponent,
+    SignalsComponent,
+    LazyLoadComponentWithoutRoutingComponent,
+    LazyLoadableComComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule, 
   ],
   providers: [
     {
