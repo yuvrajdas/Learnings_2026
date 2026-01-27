@@ -17,4 +17,8 @@ export class AppComponent {
     console.log(rLink)
     this.route.navigateByUrl(rLink)
   }
+
+  loadResolverCom(){
+    this.route.navigate(['resolver']);
+  }
 }
