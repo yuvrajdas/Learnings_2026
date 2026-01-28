@@ -1,1 +1,22 @@
-<p>crud-pagination works!</p>
+<div>
+    <input type="text" (input)="filterUser($event)">{{pageIndex}}
+    <table border="1px solid" *ngIf="cloneUserData?.length>0">
+        <thead>
+
+            <tr>
+                <th (click)="sortData('id')"> <span>srt</span> ID</th>
+                <th (click)="sortData('title')">Title</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let user of cloneUserData">
+                <td>{{user.id}}</td>
+                <td>{{user.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="navigate('prev')">Prev </button>
+    <button (click)="navigate('next')">Next </button>
+</div>

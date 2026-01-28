@@ -37,6 +37,8 @@ import { LazyLoadingStrategyModule } from './topics/loading-strategy/lazyloading
 import { SignalsComponent } from './topics/signals/signals.component';
 import { LazyLoadComponentWithoutRoutingComponent } from './topics/exceptional-topics/lazy-load-component-without-routing/lazy-load-component-without-routing.component';
 import { LazyLoadableComComponent } from './topics/exceptional-topics/lazy-loadable-com/lazy-loadable-com.component';
+import { DecoAComponent } from './topics/decorators/deco-a/deco-a.component';
+import { DecoBComponent } from './topics/decorators/deco-b/deco-b.component';
 
 @NgModule({
   declarations: [
@@ -71,6 +73,8 @@ import { LazyLoadableComComponent } from './topics/exceptional-topics/lazy-loada
     SignalsComponent,
     LazyLoadComponentWithoutRoutingComponent,
     LazyLoadableComComponent,
+    DecoAComponent,
+    DecoBComponent,
   ],
   imports: [
     BrowserModule,

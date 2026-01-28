@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class LoadingStrategyComponent {
 
+  ngOnInit(){
+    console.log('LoadingStrategyComponent')
+  }
 }
