@@ -39,6 +39,7 @@ import { LazyLoadComponentWithoutRoutingComponent } from './topics/exceptional-t
 import { LazyLoadableComComponent } from './topics/exceptional-topics/lazy-loadable-com/lazy-loadable-com.component';
 import { DecoAComponent } from './topics/decorators/deco-a/deco-a.component';
 import { DecoBComponent } from './topics/decorators/deco-b/deco-b.component';
+import { InfiniteLoaderComponent } from './topics/tasks/infinite-loader/infinite-loader.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { DecoBComponent } from './topics/decorators/deco-b/deco-b.component';
     LazyLoadableComComponent,
     DecoAComponent,
     DecoBComponent,
+    InfiniteLoaderComponent,
   ],
   imports: [
     BrowserModule,
