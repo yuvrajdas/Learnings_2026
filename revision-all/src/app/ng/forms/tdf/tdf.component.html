@@ -1,0 +1,49 @@
+<form #userForm="ngForm" (ngSubmit)="submitForm(userForm.value)">
+    <input type="text" name="name" [(ngModel)]="tdUserForm.name" required="required" pattern="^[a-zA-Z]+$">
+    <div *ngIf="userForm.controls['name']?.invalid && userForm.controls['name']?.touched">
+        <span *ngIf="userForm.controls['name']?.errors?.['required']">Name field is required</span>
+        <span *ngIf="userForm.controls['name']?.errors?.['pattern']">Please enter valid name</span>
+    </div>
+
+    <input type="text" name="emailaddress" [(ngModel)]="tdUserForm.emailaddress" required="required">
+    <div *ngIf="userForm.controls['emailaddress']?.invalid && userForm.controls['emailaddress']?.touched">
+        <span *ngIf="userForm.controls['emailaddress']?.errors?.['required']">emailaddress field is required</span>
+    </div>
+    <button>Submit</button>
+</form>
+<br><br>
+<!-- Reactive form -->
+<form [formGroup]="rfUserForm">
+    <input type="text" formControlName="uname">
+    <div *ngIf="rfUserForm.get('uname')?.invalid && rfUserForm.get('uname')?.touched">
+        <span *ngIf="rfUserForm.get('uname')?.hasError('required')"> username field is required </span>
+        <span *ngIf="rfUserForm.get('uname')?.hasError('notAllowed')">this username is not allowed</span>
+    </div>
+
+    <br><br>
+     <input type="text" formControlName="card">
+     <div *ngIf="rfUserForm.get('card')?.invalid && rfUserForm.get('card')?.touched">
+        <span *ngIf="rfUserForm.get('card')?.hasError('required')">Card field is required</span>
+        <span *ngIf="rfUserForm.get('card')?.hasError('visa')">Card type Visa</span>
+        <span *ngIf="rfUserForm.get('card')?.hasError('mastercard')">Cart type Mastercard</span>
+     </div>
+
+
+     <br><br>
+     <div formArrayName="addresses">
+        <button (click)="addMoreAddress()">Add more address</button>
+        <div *ngFor="let address of addresses; let i = index" style="margin-top: 10px;">
+            
+            <input placeholder="Please enter address {{i}}" type="text" [formControlName]="i">
+            <button (click)="deleteAddress(i)">Delete</button>
+            <div *ngIf="rfUserForm.get('addresses')?.get(i.toString())?.invalid && rfUserForm.get('addresses')?.get(i.toString())?.touched">
+                <span *ngIf="rfUserForm.get('addresses')?.get(i.toString())?.hasError('required')"> {{i}} Addres is required</span>
+            </div>
+        </div>
+    </div>
+    <button (click)="submitform()">submit</button>
+
+    <div [ngStyle]="cond ? {'color':'red'} : null">style change </div>
+    <div [class.myclass]="cond">myclass css change </div>
+
+</form>
