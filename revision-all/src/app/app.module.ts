@@ -12,6 +12,8 @@ import { LinkHilighDirective } from './ng/host-binding/link.hilight.directive';
 import { UserDetialsComponent } from './ng/user-detials/user-detials.component';
 import { TdfComponent } from './ng/forms/tdf/tdf.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchSortPaginationComponent } from './ng/search-sort-pagination/search-sort-pagination.component';
+import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,12 +26,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LinkHilighDirective,
     UserDetialsComponent,
     TdfComponent,
+    SearchSortPaginationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    HttpClientModule
 
   ],
   providers: [],

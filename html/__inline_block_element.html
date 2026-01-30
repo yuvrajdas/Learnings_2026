@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <main style="border: 1px solid red;">
+        Hello
+    </main> -->
+
+   
+
+    
+
+
+    <input type="text" oninput="betterFun(event)">
+    <button onclick="throtterl()">Fire</button>
+    <script>
+
+
+        function fib(n){
+            if(n == 0) return 0;
+            if(n == 1) return 1;
+            return fib(n-1)+fib(n-2);
+        }
+
+            console.log("ans fib", fib(5));
+
+        le
+        let f = 0;
+        let s = 1;
+        n = 5;
+        // <!-- 0,1,1,2,3 -->
+        for(let i=0; i<n-2; i++){
+            let next = f+s;
+            console.log(next);
+            f = s;
+            s = next;
+        }
+
+        let arr = [1,2,3,4,5, 5,5,5];
+        
+        let res = arr.reduce((acc, curr)=>{
+            if(acc[curr]){
+                acc[curr]++;
+            }else{
+                acc[curr] = 1;
+            }
+
+            return acc;
+        },{})
+
+        console.log(res);
+
+
+        Array.prototype.myForEach = function(cb){
+            if(typeof cb !== 'function'){
+                throw new Error(cb, 'not a function')
+                return;
+            }
+
+            for(let i = 0; i<this.length; i++){
+                cb(this[i], i, this);
+            }
+
+        }
+
+        Array.prototype.myMap = function(cb){
+            if(typeof cb !== 'function'){
+                throw new Error(cb, 'not a function')
+                return;
+            }
+
+            let res = []
+            
+            for(let i = 0; i<this.length; i++){
+                res.push(cb(this[i], i, this));
+            }
+            return res;
+        }
+
+        Array.prototype.myFilter = function(cb) {
+            if(typeof cb !== 'function'){
+                throw new Error(cb, 'not a function')
+                return;
+            }
+
+            let res = []
+            
+            for(let i = 0; i<this.length; i++){
+
+                if(cb(this[i], i, this)){
+                    res.push(this[i], i, this);
+                }
+            }
+            return res;
+        }
+
+
+        Array.prototype.myReduce = function(cb, initilaValue){
+            if(typeof cb !== 'function'){
+                throw new Error(cb, 'not a function')
+                return;
+            }
+
+            let startIdx;
+            let acc;
+
+            if(initilaValue !== undefined){
+                acc = initilaValue;
+                startIdx = 0;
+            } else{
+                acc = this[0]
+                startIdx = 1;
+            }
+
+            for(let i = startIdx; i<this.length; i++){
+                acc = cb(acc, this[i], i, this)
+            }
+
+            return acc;
+        }
+
+
+        // arr.myForEach((e)=>{
+        //     console.log(e);
+        // })
+
+
+
+
+
+
+
+
+
+
+
+        function fireEvent(e){
+            console.log("throttle",e);
+        }
+
+        let isAwait = false;
+        function throtterl(){
+
+            if(!isAwait){
+                fireEvent.call(this, 'fired');
+                isAwait = true;
+
+                setTimeout(()=>{
+                    isAwait = false;
+                },1000)
+            }
+        }
+
+
+
+
+
+
+
+        function searchData(e){
+            console.log(e.target.value);
+            
+        }
+
+        function debounce(cb, delay){
+            let timer;
+
+            return function(...args){
+                clearInterval(timer);
+
+                timer =   setTimeout(()=>{
+                    cb.call(this, ...args);
+                },delay)
+            }
+        }
+
+        const betterFun = debounce(searchData, 2000)
+    </script>
+</body>
+</html>

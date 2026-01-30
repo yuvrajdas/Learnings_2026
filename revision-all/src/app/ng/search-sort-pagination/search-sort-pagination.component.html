@@ -1,0 +1,22 @@
+<p>search-sort-pagination works!</p>
+
+<div>
+    <input type="text" (input)="search($event)">
+    <table border="1px solid">
+        <thead>
+            <tr>
+                <th (click)="sortCol('id')">ID</th>
+                <th (click)="sortCol('title')">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            <tr *ngFor="let user of clonedUserData">
+                <td>{{user.id}}</td>
+                <td> {{user.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="nav('pre')">Prev</button>
+    <button (click)="nav('next')">Next</button>
+</div>
