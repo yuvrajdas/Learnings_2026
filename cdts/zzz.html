@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" oninput="betterFun(event)"> -->
+
+    <script>
+        
+        function searchVal(event){
+            console.log(event.target.value);
+            
+        }
+        function debounce(cb, delay){
+            let timer;
+
+            return function(...args){
+                clearInterval(timer);
+                
+                timer = setTimeout(()=>{
+                    cb.call(this, ...args);
+                },2000)
+            }
+        }
+       const betterFun = debounce(searchVal, 1000)
+
+
+       let arr = [1,2,3,4,4,4,4,5, 5];
+
+       let r = arr.reduce((acc, curr)=>{
+        if(acc[curr]){
+            acc[curr]++;
+        }else{
+            acc[curr] = 1;
+        }
+        return acc;
+       },{})
+       console.log(r);
+       
+       Array.prototype.myMap = function(cb){
+            let res = []
+            for(let i =0; i<this.length; i++){
+                res.push(cb(this[i], i, this))
+            }   
+
+            return res;
+       }
+
+       Array.prototype.myFilter = function(cb){
+        let arr = []
+        for(let i = 0; i<this.length; i++){
+            if(cb(this[i], i, this)){
+                arr.push(this[i])
+            }
+        }
+       }
+
+
+      Array.prototype.myReduce = function(cb, initialVal){
+
+        let sidx;
+        let acc;
+        
+        if(initialVal !== undefined){
+            sidx = 0;
+            acc = initialVal;
+        }else{
+            sidx = 1;
+            acc = this[0];
+        }
+
+        for(let i = sidx; i<this.length; i++){
+            acc = cb(acc, this[i], i, this);
+        }
+
+        return acc;
+      }
+
+
+    </script>
+    
+</body>
+</html>

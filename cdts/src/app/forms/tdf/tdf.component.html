@@ -1,0 +1,17 @@
+
+<form #userForm="ngForm" (ngSubmit)="submitForm(userForm.value)">
+    <div>
+        <input type="text" name="name" [(ngModel)]="user.name" required="required" placeholder="Name">
+        <span *ngIf="userForm.controls['name']?.invalid && userForm.controls['name']?.touched">
+            <span *ngIf="userForm.controls['name']?.errors?.['required']">Name field is required</span>
+        </span>
+    </div>
+    <br>
+    <div>
+        <input type="text" name="email" [(ngModel)]="user.email" required placeholder="Email" pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$">
+        <span *ngIf="userForm.controls['email'].invalid && userForm.controls['email']?.touched">
+            <span *ngIf="userForm.controls['email']?.errors?.['required']">Email field is required</span>
+            <span *ngIf="userForm.controls['email']?.errors?.['pattern']">Please Enter Valid email</span>
+        </span>
+    </div>
+</form>

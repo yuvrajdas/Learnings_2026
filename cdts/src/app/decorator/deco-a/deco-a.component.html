@@ -1,0 +1,8 @@
+
+<div style="border: 1px solid;">
+<b>Parent compoent</b>
+    <p>deco-a works!</p>
+    <p>data sent from child is : {{cData}}</p>
+</div>
+
+<app-deco-b (evnt)="getData($event)" data="hello from parent"></app-deco-b>

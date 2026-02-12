@@ -1,0 +1,30 @@
+<div style="width: 700px; ">
+    
+    <input type="text">
+    <div style="max-height: 800px; overflow-y: auto;">
+        <table border="1px">
+            <thead style="position: sticky; top:0px; background: white;">
+                <tr>
+                    <th (click)="sortCol('id')">ID</th>
+                    <th (click)="sortCol('title')">Title</th>
+                    <th (click)="sortCol('body')">Body</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let user of cloneUserData;">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.title }}</td>
+                    <td>{{ user.body }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <select (change)="changePageSize($event)">
+        <option *ngFor="let pageSize of [10, 20, 50, 100]">{{pageSize}}</option>
+    </select>
+    <button>{{pageIdx+1}}</button>
+    <button (click)="navigateTo('pre')" >Pre</button>
+    <button (click)="navigateTo('next')" >Next</button>
+</div>

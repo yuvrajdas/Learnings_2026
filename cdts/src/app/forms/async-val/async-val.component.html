@@ -1,0 +1,10 @@
+
+<form [formGroup]="myForm">
+    <input type="text" formControlName="fn">
+    <div *ngIf="myForm.get('fn')?.invalid && myForm.get('fn')?.touched">
+        <span *ngIf="myForm.get('fn')?.hasError('required')">Fn field is required</span>
+        <span *ngIf="myForm.get('fn')?.hasError('cfe')">Your custom field error message</span>
+        <span *ngIf="myForm.get('fn')?.hasError('visa')">Visa Card</span>
+        <span *ngIf="myForm.get('fn')?.hasError('master')">Master Card</span>
+    </div>
+</form>
