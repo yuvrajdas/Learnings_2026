@@ -1,0 +1,12 @@
+<div class="dashboar-wrapper">
+    <app-generic-button buttonIconName="add" buttonColor="primary" buttonText="Add User" (btnEvent)="openUserFormDialog()"></app-generic-button>
+    <div class="data-container">
+      <div class="table"  @slideDown>
+        <app-user-table></app-user-table>
+      </div>
+      <div class="chart" @slideDown>
+        <app-user-chart style="width: 100%; height: 100%; padding:20px;"></app-user-chart>
+      </div>
+    </div>
+</div>
+  
