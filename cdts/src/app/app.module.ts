@@ -28,6 +28,7 @@ import { AsyncValComponent } from './forms/async-val/async-val.component';
 import { SingnalsExComponent } from './singnals-ex/singnals-ex.component';
 import { ResolverComComponent } from './resolver/resolver-com/resolver-com.component';
 import { RxjsExComponent } from './_1rxjs/rxjs-ex/rxjs-ex.component';
+import { ValueRestrictorDirective } from './custom-directives/value-restrictor.directive';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { RxjsExComponent } from './_1rxjs/rxjs-ex/rxjs-ex.component';
     SingnalsExComponent,
     ResolverComComponent,
     RxjsExComponent,
+    ValueRestrictorDirective
   ],
   imports: [
     FormsModule,

@@ -1,0 +1,4 @@
+=> Difference between Element and Component
+    A Component is a class/function that return an Element.
+    Element is an object that describe what should be appear on the UI.
+    

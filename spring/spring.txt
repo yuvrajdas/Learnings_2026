@@ -1,0 +1,19 @@
+==> Spring : Spring is an Open-Source java framwork used to build interprise level application
+
+Features of Spring : 
+1. Dipendency Injection (DI)
+2. Aspect Oriented Programming (AOP)
+3. Data Access
+4. Web Application Development
+5. Testing
+6. Security
+
+==> IOC : IOC stands for Inversion fo Control 
+    It is a design principal in which control of object creation and management is transfered from the application code to container or framwork.
+
+==> Bean :  A Bean in Spring is simply an object that is created, managed, and controlled by the Spring IoC container.
+
+==> POJO : POJO stands for Plan Old Java Object. That is not dependent on any other spacial framwork.
+           - Does not extends, implements any framwork, class or interfaces.
+           - It is just a simple class with vairable, constructor, getter and setter methods.
+           

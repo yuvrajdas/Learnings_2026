@@ -1,0 +1,33 @@
+ BEGINNER LEVEL 🟢
+ 1. What's the difference between Observable, Subject, BehaviorSubject, and ReplaySubject? When would you use each?
+ 2. Why do we need to unsubscribe from Observables? What happens if we don't?
+ 3. What's the difference between map() and switchMap()? Can you explain with a real-world example?
+ 4. Cold vs Hot Observables - what's the difference and why does it matter?
+ 5. When would you use take(1) vs first() vs single()?
+
+ INTERMEDIATE LEVEL 🟡
+
+ 6. What's the difference between mergeMap, switchMap, concatMap, and exhaustMap? Which one would you use
+ for search autocomplete?
+ 7. How would you cancel an ongoing HTTP request when a new one is triggered? Which operator makes this
+ easy?
+ 8. What's the purpose of the shareReplay() operator and how does it differ from share()?
+ 9. Why is tap() called a "side effect" operator? What should and shouldn't you do inside it?
+ 10. How do you handle errors in RxJS streams without breaking the entire Observable chain?
+
+ ADVANCED LEVEL 🟠
+
+ 11. What's the difference between catchError and retry? How would you implement exponential backoff retry
+ logic?
+ 12. How does debounceTime() vs throttleTime() vs auditTime() differ? Give real-world use cases for each.
+ 13. What are Higher-Order Observables and why do flattening operators exist?
+ 14. How would you implement a polling mechanism that stops after a certain condition is met?
+ 15. What's the difference between combineLatest, forkJoin, merge, and zip? When would you use each?
+
+ EXPERT LEVEL 🔴
+
+ 16. What's the marble diagram for switchMap and how does it help visualize the operator behavior?
+ 17. How do you create a custom RxJS operator? What's the best practice for building reusable operators?
+ 18. What are Schedulers in RxJS and when would you need to use them?
+ 19. Memory leaks in RxJS - what are the most common causes and how do you prevent them?
+ 20. How would you test RxJS code effectively? What tools and patterns do you use?
