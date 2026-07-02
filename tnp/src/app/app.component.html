@@ -1,0 +1,58 @@
+<!-- <div style="padding: 100px;">
+
+<input type="text" restrictValue [restrictValue]="myVal" (input)="enterValue($event)">
+
+<button (click)="updateValue()">Click {{count}}</button>
+<router-outlet></router-outlet>
+</div>
+
+<ng-container #container></ng-container>
+
+<button (click)="loadComponent()" >Lazy load component without routing</button>
+<app-details>
+    <div con>projected data</div>
+</app-details> -->
+
+
+<div style="padding: 100px;">
+
+    <form [formGroup]="userForm">
+
+        <div>
+            <input type="text" formControlName="cf">
+            <div *ngIf="userForm.get('cf')?.invalid && userForm.get('cf')?.touched">
+                <span *ngIf="userForm.get('cf')?.hasError('checksError')">yuvraj is not allowed</span>
+                <span *ngIf="userForm.get('cf')?.hasError('required')">this field is required</span>
+                <span *ngIf="userForm.get('cf')?.hasError('visa')">Visa</span>
+            </div>
+        </div>
+        <br>
+        <div>
+            <input type="text" formControlName="name">
+            <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched">
+                <span *ngIf="userForm.get('name')?.hasError('required')">Name filed is required</span>   
+            </div>
+        </div>
+        <br>
+         <div>
+            <input type="text" formControlName="emailAddress">
+            <div *ngIf="userForm.get('emailAddress')?.invalid && userForm.get('emailAddress')?.touched">
+                <span *ngIf="userForm.get('emailAddress')?.hasError('required')">Email filed is required</span> 
+                <span *ngIf="userForm.get('emailAddress')?.hasError('email')">Please enter valid email</span>  
+            </div>
+        </div>
+        <br>
+        <div formArrayName="addresseS">
+            <button (click)="addAddresses()">Add Address</button>
+            <div *ngFor="let address of addresses; let i = index">
+                <input type="text" [formControlName]="i">
+                <div *ngIf="userForm.get('addresseS')?.get(i.toString())?.invalid && userForm.get('addresseS')?.get(i.toString())?.touched">
+                    <span *ngIf="userForm.get('addresseS')?.get(i.toString())?.hasError('required')">Please enter {{i}}th addreed</span>
+                </div>
+                <br>
+            </div>
+        </div>
+    </form>
+
+
+</div>

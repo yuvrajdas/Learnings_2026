@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <input type="text" oninput="betterFun(event)"> -->
+    <!-- <button onclick="fire()">click</button> -->
+<script>
+
+    let arr = [1,2,3,4,5];
+
+    Array.prototype.myReduce = function(cb, intialValue){
+        if(typeof cb !== 'function'){
+            throw new Error(cb, 'is not a function');
+        }
+
+        let acc;
+        let startIdx;
+
+        if(intialValue !== undefined){
+            acc = intialValue;
+            startIdx = 0;
+        }else{
+            acc = this[0];
+            startIdx = 1;
+        }
+
+        for(let i=startIdx; i<this.length; i++){
+            acc = cb(acc, this[i], i, this)
+        }
+        return acc;
+    }
+    
+    let rr = arr.myReduce((acc, crr)=>{
+        acc+=crr;
+        return acc;
+    }, 0)
+
+    console.log(rr);
+    
+
+    Array.prototype.myFilter = function(cb){
+        let res = []
+
+        for(let i=0; i<this.length; i++){
+            if(cb(this[i], i, this)){
+                res.push(cb(this[i], i, this))
+            }
+        }
+        return res;
+    }
+
+    Array.prototype.myMap = function(cb){
+        if(typeof cb !== 'function'){
+            throw new Error(cb , 'not a function')
+        }
+
+        let res = [];
+
+        for(let i=0; i<this.length; i++){
+            res.push(cb(this[i], i, this))
+        }
+
+        return res;
+    }
+
+    let res = arr.myMap((ele)=>{
+        if(ele>2){
+            return ele;
+        } 
+    })
+
+    // console.log(res);
+    
+
+
+
+    Array.prototype.myForEach = function(cb){
+        for(let i=0; i<this.length; i++){
+            cb(this[i], i, this)
+        }
+    }
+
+    // arr.forEach((ele, idx, arr)=>{
+    //     console.log(ele, idx, arr);
+    // })
+
+    // arr.myForEach((ele, idx, arr)=>{
+    //     console.log(ele, idx, arr);
+    // })
+
+
+    // ----------------- throuttle --------------------
+    function executeFire(e){
+        console.log(e);
+    }
+    let await = false;
+    let bullet = 0
+    
+    function fire(){
+        if(!await){
+            await = true;
+            bullet++
+            executeFire.call(this, bullet)
+
+            setTimeout(()=>{
+                await = false;
+            }, 2000)
+        }
+    }
+
+
+    // ------------------ debounce --------------------
+    function search(e){
+        console.log(e.target.value);        
+    }
+
+    function debounce(cb, delay){
+
+        let timer;
+
+        return function(...args){
+            clearInterval(timer);
+
+            timer = setTimeout(()=>{
+                cb.call(this, ...args);
+            }, delay)
+        }
+    }
+
+    const betterFun = debounce(search, 2000)
+</script>
+</body>
+</html>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
+        /* body{
             display: flex;
             width: 100%;
         }
@@ -20,15 +20,45 @@
                 flex-direction: column; 
             }
            
-        }
+        } */
+         /* .container{
+            width: 900px;
+            display: flex;
+            flex-wrap: wrap;
+         }
+
+         .box{
+            width: 33.33%;
+            border: 1px solid;
+         } */
+
+         .container{
+            width: 1200px;
+            display: grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+
+         }
+         .box{
+            border: 1px solid;
+         }
     </style>
 </head>
 <body>
-    <div style="background-color: yellowgreen;">
+    <!-- <div style="background-color: yellowgreen;">
         DIV 1
     </div>
     <div style="background-color: skyblue;">
         DIV 2
+    </div> -->
+
+
+    <div class="container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
     </div>
 </body>
 </html>

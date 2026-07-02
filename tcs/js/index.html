@@ -1,0 +1,65 @@
+<script>
+    /**
+     * 1. Hoisting : Hoisting in JS is a mechanishm where we can access the function and variable even befor the declaration.
+     * How hoisting work ? 
+     * the answer lies in Execution context. when we run the js code 
+     * 1. Gloable execution cotenxt is create (also known as memory creation phase)
+     * in this phase memory is created for every variables and function 
+     * and default value assigned into it. 
+     * for function => function itself and 
+     * for variable => undefined
+     * 
+     * when the execution cotext created 
+     * tha value takes from Global execution context.
+     * 
+     * ---------------------------------------------------------------------------------
+     * 
+     * 2. Lexical Scope : Accessablity of functions and variables within a block.
+     * 
+     * ---------------------------------------------------------------------------------
+     * 
+     * 3. 
+     * 
+     * 
+    */
+
+    // let arr = [1,2,3,4,5];
+
+    // Array.prototype.myReduce = function(cb, initialValue){
+    //     if(typeof cb !== 'function') throw new TypeError(cb+' is not a function');
+
+    //     let startIdx;
+    //     let acc;
+
+    //     if(initialValue !== undefined){
+    //         acc = initialValue;
+    //         startIdx = 0;
+    //     }else{
+    //         acc = this[0];
+    //         startIdx = 1;
+    //     }
+
+    //     for(let i = startIdx; i<this.length; i++){
+    //         if(i in this){
+    //             acc = cb(acc, this[i], i, this);
+    //         }
+    //     }
+
+    //     return acc;
+    // }
+
+    function fib(n){
+        if(n == 0){
+            return 0;
+        }
+        if(n === 1){
+            return 1;
+        }
+
+        return fib(n-1)+fib(n - 2);
+    }
+
+    console.log(fib(3));
+    
+   
+</script>
